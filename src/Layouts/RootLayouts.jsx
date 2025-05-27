@@ -7,7 +7,9 @@ const RootLayouts = () => {
     return (
         <div>
             <Navbar/>
-            <Outlet/>
+            <div className='min-w-7xl mx-auto'>
+                <Outlet/>
+            </div>
             <Footer/>
         </div>
     );
