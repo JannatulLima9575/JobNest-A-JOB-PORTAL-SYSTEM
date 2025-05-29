@@ -70,7 +70,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="navbar-center">
-            <ul className="menu menu-horizontal px-1 font-semibold text-base">
+            <ul className="menu menu-horizontal px-1 font-semibold text-base text-base-content dark:text-white">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/jobs">Jobs</Link></li>
               <li><Link to="/my-jobs">My Jobs</Link></li>
