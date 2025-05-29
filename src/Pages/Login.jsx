@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import React, { use } from "react";
 import lottieImage from "../assets/lottiefiles/Login.json";
 import { AuthContext } from "./../Context/AuthContext/AuthContext";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
   const { signInUser } = use(AuthContext);
@@ -16,14 +17,12 @@ const Login = () => {
 
     //SignIn user
     signInUser(email, password)
-    .then(result => {
-      console.log(result.user);
-    })
-    .catch(error => {
-      console.log(error);
-      
-    })
-    
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -62,6 +61,9 @@ const Login = () => {
                 <button className="btn btn-neutral mt-4">Sign In</button>
               </fieldset>
             </form>
+            <div className="justify-center items-center text-center">
+              <SocialLogin />
+            </div>
           </div>
         </div>
       </div>
