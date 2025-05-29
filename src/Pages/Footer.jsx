@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
-import logoImage from "../assets/FavIcon.png";
+import logoImage from "../assets/footer.png";
 
 const Footer = () => {
   return (
@@ -9,10 +9,7 @@ const Footer = () => {
         {/* Branding */}
         <aside className="col-span-2 md:col-span-1">
           <div className="flex items-center ">
-            <img className="w-6 h-6" src={logoImage}/>
-          <Link to="/" className="text-2xl font-bold text-primary ml-2">
-                      Job<span className="text-secondary">Nest</span>
-                    </Link>
+            <img className="" src={logoImage}/>
           </div>
           <p className="mt-2 font-semibold leading-snug">
             Empowering Freelancers since 2024

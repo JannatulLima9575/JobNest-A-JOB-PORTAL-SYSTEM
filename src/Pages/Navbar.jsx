@@ -66,7 +66,7 @@ const Navbar = () => {
         <div className="navbar hidden lg:flex">
           <div className="navbar-start">
             <Link to="/" className="flex items-center ml-2">
-              <img className="w-52 h-auto mr-2" src={logo} />
+              <img className="w-60 h-auto mr-2" src={logo} />
             </Link>
           </div>
           <div className="navbar-center">
