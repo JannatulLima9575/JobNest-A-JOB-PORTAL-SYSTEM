@@ -3,9 +3,9 @@ export default {
   theme: {
     extend: {},
   },
-  darkMode: 'class', // 👈 Enable class-based dark mode
+  darkMode: 'class',
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["corporate", "night"], // 👈 light & dark theme
+    themes: ["corporate", "night"],
   },
 };

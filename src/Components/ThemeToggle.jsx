@@ -1,22 +1,27 @@
 import { useEffect, useState } from "react";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState("corporate");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(theme === "corporate" ? "night" : "corporate");
-  };
-
   return (
     <button
       onClick={toggleTheme}
-      className="rounded-4xl md:p-2 bg-base-400"
+      className="btn btn-sm btn-circle btn-outline"
+      aria-label="Toggle Theme"
     >
-      {theme === "corporate" ? "🌙 Dark" : "🌞 Light"}
+      {theme === "light" ? <FiMoon /> : <FiSun />}
     </button>
   );
 };
