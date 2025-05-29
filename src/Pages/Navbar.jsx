@@ -32,16 +32,21 @@ const Navbar = () => {
         {/* Mobile View */}
         <div className="w-full flex items-center justify-between lg:hidden">
           <Link to="/" className="flex items-center">
-            <img className="w-52 h-auto mr-2" src={logo} />
+            <img className="w-52 h-auto mr-2" src={logo} alt="Logo" />
           </Link>
 
           <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+            <label tabIndex={0} className="btn btn-ghost text-gray-800 dark:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16" />
               </svg>
             </label>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[999] p-2 shadow bg-base-200 rounded-box w-52">
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[999] p-2 shadow bg-base-200 dark:bg-gray-800 rounded-box w-52 text-gray-800 dark:text-white"
+            >
               <li><Link to="/">Home</Link></li>
               <li><Link to="/jobs">Jobs</Link></li>
               <li><Link to="/my-jobs">My Jobs</Link></li>
@@ -49,14 +54,18 @@ const Navbar = () => {
               <li><Link to="/contact">Contact</Link></li>
               <div className="divider my-1"></div>
               {user ? (
-                <li><button onClick={handleSignOut} className="btn btn-outline btn-sm w-full">Sign Out</button></li>
+                <li>
+                  <button onClick={handleSignOut} className="btn btn-outline btn-sm w-full">
+                    Sign Out
+                  </button>
+                </li>
               ) : (
-                <div className="flex flex-col gap-2 w-1/2 mb-2">
+                <div className="flex flex-col gap-2 w-full mb-2">
                   <li><Link to="/register" className="btn-sm w-full">Register</Link></li>
                   <li><Link to="/login" className="btn-sm w-full">Sign In</Link></li>
                 </div>
               )}
-              <ThemeToggle/>
+              <ThemeToggle />
             </ul>
           </div>
         </div>
@@ -65,11 +74,11 @@ const Navbar = () => {
         <div className="navbar hidden lg:flex">
           <div className="navbar-start">
             <Link to="/" className="flex items-center ml-2">
-              <img className="w-60 h-auto mr-2" src={logo} />
+              <img className="w-60 h-auto mr-2" src={logo} alt="Logo" />
             </Link>
           </div>
           <div className="navbar-center">
-            <ul className="menu menu-horizontal px-1 font-semibold text-base text-base-content dark:text-white">
+            <ul className="menu menu-horizontal px-1 font-semibold text-base text-gray-800 dark:text-white">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/jobs">Jobs</Link></li>
               <li><Link to="/my-jobs">My Jobs</Link></li>
@@ -80,7 +89,9 @@ const Navbar = () => {
           <div className="navbar-end flex items-center gap-2">
             <ThemeToggle />
             {user ? (
-              <button onClick={handleSignOut} className="btn btn-outline btn-sm">Sign Out</button>
+              <button onClick={handleSignOut} className="btn btn-outline btn-sm">
+                Sign Out
+              </button>
             ) : (
               <>
                 <Link to="/register" className="btn btn-primary btn-sm">Register</Link>

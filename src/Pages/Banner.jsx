@@ -8,7 +8,7 @@ import { Link } from "react-router";
 
 const Banner = () => {
   return (
-    <div className="hero bg-blue-50 min-h-[70vh] transition-colors duration-500">
+    <div className="hero bg-blue-50 dark:bg-gray-900 min-h-[70vh] transition-colors duration-500 text-base-content dark:text-gray-100">
       <div className="hero-content flex-col-reverse lg:flex-row-reverse gap-8 px-4 md:px-8 text-gray-800 dark:text-gray-100">
         {/* ✅ Image Section (Hidden on Small Devices) */}
         <div className="flex-1 hidden sm:flex justify-center items-center relative h-[360px]">
@@ -44,9 +44,9 @@ const Banner = () => {
             className="w-20 h-auto object-cover absolute bottom-4 left-[90px] z-20"
           />
 
-          {/* Decorative Dots */}
-          <div className="absolute top-1/2 right-[80px] w-16 h-16 bg-[radial-gradient(circle,_#d0d0d0_1px,_transparent_1px)] bg-[length:6px_6px] opacity-40"></div>
-          <div className="absolute bottom-[80px] left-[50px] w-16 h-16 bg-[radial-gradient(circle,_#d0d0d0_1px,_transparent_1px)] bg-[length:6px_6px] opacity-30"></div>
+          {/* Decorative Dots (with dark support) */}
+          <div className="absolute top-1/2 right-[80px] w-16 h-16 bg-[radial-gradient(circle,_#d0d0d0_1px,_transparent_1px)] dark:bg-[radial-gradient(circle,_#444_1px,_transparent_1px)] bg-[length:6px_6px] opacity-40"></div>
+          <div className="absolute bottom-[80px] left-[50px] w-16 h-16 bg-[radial-gradient(circle,_#d0d0d0_1px,_transparent_1px)] dark:bg-[radial-gradient(circle,_#444_1px,_transparent_1px)] bg-[length:6px_6px] opacity-30"></div>
         </div>
 
         {/* ✅ Text Section */}
@@ -69,7 +69,7 @@ const Banner = () => {
             to Get Your New Job
           </motion.h1>
 
-          <p className="py-6 text-base color-gray-600 dark:text-gray-50">
+          <p className="py-6 text-base text-gray-600 dark:text-gray-300">
             Discover your dream job with our platform. We connect you with top
             employers and help you find the perfect fit for your skills and
             career goals. Whether you're looking for a new opportunity or just
@@ -78,10 +78,16 @@ const Banner = () => {
           </p>
 
           <div className="flex md:justify-start justify-center md:gap-3 gap-1.5">
-            <Link to="/" className="btn bg-[#3c65f5] text-white hover:bg-[#05264e] rounded-2xl">
+            <Link
+              to="/"
+              className="btn bg-[#3c65f5] text-white hover:bg-[#05264e] rounded-2xl"
+            >
               Find Jobs
             </Link>
-            <Link to="/" className="btn bg-[#3c65f5] text-white hover:bg-[#05264e] rounded-2xl">
+            <Link
+              to="/"
+              className="btn bg-[#3c65f5] text-white hover:bg-[#05264e] rounded-2xl"
+            >
               Explore World
             </Link>
           </div>
