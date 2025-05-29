@@ -3,7 +3,6 @@ import ThemeToggle from "../Components/ThemeToggle";
 import { useEffect, useState, use } from "react";
 import { AuthContext } from './../Context/AuthContext/AuthContext';
 import logo from '../assets/logo.png';
-import { div } from "motion/react-client";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
