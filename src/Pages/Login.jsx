@@ -3,9 +3,18 @@ import React, { use } from "react";
 import lottieImage from "../assets/lottiefiles/Login.json";
 import { AuthContext } from "./../Context/AuthContext/AuthContext";
 import SocialLogin from "./SocialLogin";
+import { useLocation, useNavigate } from "react-router";
 
 const Login = () => {
   const { signInUser } = use(AuthContext);
+
+  // for back previous page after login
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state || '/';
+
+  console.log('location is signIn page', location);
+  
 
   // for getting form data
   const handleSignIn = (e) => {
@@ -19,6 +28,7 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
+        navigate(from);
       })
       .catch((error) => {
         console.log(error);
@@ -62,7 +72,7 @@ const Login = () => {
               </fieldset>
             </form>
             <div className="justify-center items-center text-center">
-              <SocialLogin />
+              <SocialLogin from={from}/>
             </div>
           </div>
         </div>

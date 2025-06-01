@@ -2,18 +2,18 @@ import React from "react";
 import { FiMapPin } from "react-icons/fi";
 import { BsLightningCharge } from "react-icons/bs";
 import { FaClock, FaLock } from "react-icons/fa";
+import { Link } from "react-router";
 
 const DetailsCard = ({ job }) => {
   const {
+    _id,
     title,
     company_logo,
     location,
     jobType,
-    category,
-    applicationDeadline,
+    salaryRange,
     description,
     company,
-    salary,
     postedTime,
     requirements,
     tags, // assume: tags = ["ASP .Net", "Figma"]
@@ -82,14 +82,16 @@ const DetailsCard = ({ job }) => {
       </div>
 
       {/* Footer */}
-      <div className="mt-6 flex justify-between items-center pt-3">
-        <p className="text-lg font-semibold text-blue-700">
-          ${salary || "250"}
-          <span className="text-sm font-normal text-gray-500">/Hour</span>
+      <div className="mt-6 flex justify-between items-center">
+        <p className="text-base font-bold text-blue-500">
+          ${salaryRange.min}
+          <span className="text-gray-500 font-normal text-base">/Hour</span>
         </p>
-        <button className="bg-blue-100 hover:bg-blue-200 text-blue-700 text-sm font-medium px-4 py-2 rounded-lg transition">
-          Apply Now
-        </button>
+        <Link to={`/jobs/${_id}`}>
+          <button className="bg-blue-100 hover:bg-blue-200 text-blue-700 text-sm font-medium px-4 py-2 rounded-md transition">
+            Show Details
+          </button>
+        </Link>
       </div>
     </div>
   );
