@@ -1,8 +1,9 @@
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import ThemeToggle from "../Components/ThemeToggle";
 import { useEffect, useState, use } from "react";
 import { AuthContext } from './../Context/AuthContext/AuthContext';
 import logo from '../assets/logo.png';
+import { li } from "motion/react-client";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -82,7 +83,12 @@ const Navbar = () => {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/jobs">Jobs</Link></li>
               <li><Link to="/my-jobs">My Jobs</Link></li>
-              <li><Link to="/applications">Applications</Link></li>
+              {/* for private routes */}
+              {
+                user && <>
+                <li><NavLink to="/myApplications">Job Applications</NavLink></li>
+                </>
+              }
               <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
