@@ -4,6 +4,8 @@ import useAuth from "../Hooks/useAuth";
 import Lottie from "lottie-react";
 import animation1 from "../assets/lottiefiles/form1.json";
 import animation2 from "../assets/lottiefiles/form2.json";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const JobApply = () => {
   const { id: jobId } = useParams();
@@ -21,23 +23,45 @@ const JobApply = () => {
       github,
       resume,
     });
+    const application = {
+      jobId,
+      applicant: user.email,
+      linkedIn,
+      github,
+      resume,
+    };
+
+    axios
+      .post("http://localhost:3000/applications", application)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            title: "Your application has been submitted!",
+            icon: "success",
+            draggable: true,
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
-    <div className="relative min-h-[60vh] flex items-center justify-center bg-base-200 text-base-content px-4 py-10 overflow-hidden">
-
+    <div className="relative min-h-[60vh] flex items-center justify-center bg-base-200 text-base-content px-4 py-16 overflow-hidden">
       {/* 🎨 Top-right Animation */}
-      <div className="absolute top-3 right-5 w-40 md:w-60 lg:w-64 opacity-70 z-0">
+      <div className="hidden md:block absolute top-4 right-5 w-32 md:w-44 lg:w-56 opacity-60 z-0 pointer-events-none">
         <Lottie animationData={animation1} loop={true} />
       </div>
 
       {/* 🎨 Bottom-left Animation */}
-      <div className="absolute bottom-0 left-3 w-32 md:w-52 lg:w-64 opacity-60 z-0">
+      <div className="hidden md:block absolute bottom-0 left-6 w-24 md:w-40 lg:w-52 opacity-50 z-0 pointer-events-none">
         <Lottie animationData={animation2} loop={true} />
       </div>
 
       {/* ✅ Centered Form */}
-      <div className="relative z-10 w-full max-w-xl bg-base-100 rounded-box p-8 shadow-xl">
+      <div className="relative z-10 w-full max-w-lg bg-base-100 rounded-box p-6 md:p-10 shadow-lg">
         <h3 className="text-2xl font-bold mb-6 text-center">
           Apply for this job:{" "}
           <Link to={`/jobs/${jobId}`} className="link link-primary">
@@ -45,7 +69,7 @@ const JobApply = () => {
           </Link>
         </h3>
 
-        <form onSubmit={handleApplyFormSubmit} className="space-y-4">
+        <form onSubmit={handleApplyFormSubmit} className="space-y-5">
           <div>
             <label className="label font-semibold">LinkedIn Link</label>
             <input
@@ -80,7 +104,11 @@ const JobApply = () => {
           </div>
 
           <div className="pt-4 text-center">
-            <input type="submit" className="btn btn-primary w-full" value="Apply Now" />
+            <input
+              type="submit"
+              className="btn btn-primary w-full"
+              value="Apply Now"
+            />
           </div>
         </form>
       </div>
