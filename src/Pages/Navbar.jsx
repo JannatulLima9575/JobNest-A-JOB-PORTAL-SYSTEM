@@ -81,14 +81,19 @@ const Navbar = () => {
           <div className="navbar-center">
             <ul className="menu menu-horizontal px-1 font-semibold text-base text-gray-800 dark:text-white">
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/jobs">Jobs</Link></li>
-              <li><Link to="/my-jobs">My Jobs</Link></li>
               {/* for private routes */}
               {
                 user && <>
-                <li><NavLink to="/myApplications">Job Applications</NavLink></li>
+                <li><NavLink to="/myApplications">My Applications</NavLink></li>
                 </>
               }
+              {/* for recruiter, check role as well | private routes */}
+              {
+                user && <>
+                <li><NavLink to="/addJob">Add Job</NavLink></li>
+                </>
+              }
+
               <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
