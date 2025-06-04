@@ -7,19 +7,21 @@ import ShowDetails from "../Pages/ShowDetails";
 import PrivateRoute from "../Routes/PrivateRoute";
 import JobApply from "../Pages/JobApply";
 import MyApplications from "./../Pages/Application/MyApplications";
+import PageNotFound from "../Pages/PageNotFound";
 
 const Router = createBrowserRouter([
+  // Main layout with navbar & footer
   {
     path: "/",
-    Component: RootLayouts,
+    element: <RootLayouts />,
     children: [
       {
         index: true,
-        Component: Home,
+        element: <Home />,
       },
       {
         path: "/jobs/:id",
-        Component: ShowDetails,
+        element: <ShowDetails />,
         loader: ({ params }) =>
           fetch(`http://localhost:3000/jobs/${params.id}`),
       },
@@ -39,15 +41,21 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/login",
-        Component: Login,
-      },
-      {
-        path: "/register",
-        Component: Register,
-      },
     ],
+  },
+
+  // Routes without Navbar/Footer
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "*",
+    element: <PageNotFound />,
   },
 ]);
 

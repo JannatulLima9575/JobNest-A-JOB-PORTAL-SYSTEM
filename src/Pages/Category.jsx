@@ -86,7 +86,7 @@ const Category = () => {
       >
         {categories.map((cat, index) => (
           <SwiperSlide key={index}>
-            <div className="bg-base-100 dark:bg-gray-800 rounded-xl border border-blue-100 dark:border-none px-4 py-3 shadow hover:shadow-lg transition-shadow cursor-pointer">
+            <div className="bg-base-100 dark:bg-gray-800 rounded-xl border border-blue-100 dark:border-none px-4 py-4 shadow hover:shadow-lg transition-shadow cursor-pointer">
               <div className="flex items-center gap-5">
                 {/* Icon Left */}
                 <div className="text-4xl text-primary">{cat.icon}</div>
