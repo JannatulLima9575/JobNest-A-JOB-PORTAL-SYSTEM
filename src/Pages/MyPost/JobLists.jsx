@@ -1,32 +1,39 @@
 import React, { use } from "react";
+import { Link } from "react-router";
 
 const JobLists = ({ jobsCreatedByPromise }) => {
   const jobs = use(jobsCreatedByPromise);
+
   return (
-    <div>
-      <h2 className="text-3xl">Jobs created by you: {jobs.length}</h2>
-      <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
-          <thead>
+    <div className="max-w-6xl mx-auto p-4 md:p-8 min-h-[45vh]">
+      <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-start">
+        Jobs Created by You: <span className="text-primary">{jobs.length}</span>
+      </h2>
+
+      <div className="overflow-x-auto shadow-md rounded-lg border border-base-300 bg-base-100">
+        <table className="table table-zebra w-full text-sm md:text-base">
+          {/* Table Head */}
+          <thead className="bg-base-200 text-base-content">
             <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>#</th>
+              <th>Job Title</th>
+              <th>Deadline</th>
+              <th>View Applications</th>
             </tr>
           </thead>
+
+          {/* Table Body */}
           <tbody>
-            {/* row */}
-            {
-            jobs.map( (job, index) => 
+            {jobs.map((job, index) => (
               <tr key={job._id}>
-                <th>{index + 1}</th>
-                <td>{job.title}</td>
+                <td>{index + 1}</td>
+                <td className="font-medium">{job.title}</td>
                 <td>{job.deadline}</td>
-                <td>Blue</td>
+                <td>
+                  <span className="badge badge-info badge-outline"><Link to={`/applications/${job._id}`}>View</Link></span>
+                </td>
               </tr>
-            )}
+            ))}
           </tbody>
         </table>
       </div>
