@@ -3,7 +3,6 @@ import ThemeToggle from "../Components/ThemeToggle";
 import { useEffect, useState, use } from "react";
 import { AuthContext } from './../Context/AuthContext/AuthContext';
 import logo from '../assets/logo.png';
-import { li } from "motion/react-client";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -91,6 +90,7 @@ const Navbar = () => {
               {
                 user && <>
                 <li><NavLink to="/addJob">Add Job</NavLink></li>
+                <li><NavLink to="/myPostedJobs">My Posted Jobs</NavLink></li>
                 </>
               }
 
