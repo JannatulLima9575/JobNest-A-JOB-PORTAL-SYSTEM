@@ -4,6 +4,9 @@ import Category from './Category';
 import Status from './Status';
 import HotJobs from './HotJobs';
 import Hiring from './Hiring';
+import HowItWorks from './HowItWorks';
+import CreateProfile from './CreateProfile';
+import SubscribeSection from '../Components/SubscribeSection';
 
 
 const Home = () => {
@@ -18,6 +21,9 @@ const Home = () => {
                 <HotJobs jobsPromise={jobsPromise}/>
             </Suspense>
             <Status/>
+            <CreateProfile/>
+            <HowItWorks/>
+            <SubscribeSection/>
         </div>
     );
 };
