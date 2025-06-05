@@ -11,7 +11,7 @@ const ViewApplications = () => {
     console.log(e.target.value, app_id);
 
     axios
-      .patch(`http://localhost:3000/applications/${app_id}`, {
+      .patch(`https://job-nest-server-nu.vercel.app/applications/${app_id}`, {
         status: e.target.value,
       })
       .then((res) => {

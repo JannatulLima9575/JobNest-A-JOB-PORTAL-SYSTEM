@@ -11,7 +11,7 @@ import Find from './Home/Find';
 
 
 const Home = () => {
-    const jobsPromise = fetch('http://localhost:3000/jobs').then(res => res.json());
+    const jobsPromise = fetch('https://job-nest-server-nu.vercel.app/jobs').then(res => res.json());
 
     return (
         <div>

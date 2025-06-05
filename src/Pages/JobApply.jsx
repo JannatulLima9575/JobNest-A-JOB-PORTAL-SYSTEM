@@ -32,7 +32,7 @@ const JobApply = () => {
     };
 
     axios
-      .post("http://localhost:3000/applications", application)
+      .post("https://job-nest-server-nu.vercel.app/applications", application)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {

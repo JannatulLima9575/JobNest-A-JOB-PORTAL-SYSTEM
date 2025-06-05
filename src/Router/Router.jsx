@@ -26,7 +26,7 @@ const Router = createBrowserRouter([
         path: "/jobs/:id",
         element: <ShowDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/jobs/${params.id}`),
+          fetch(`https://job-nest-server-nu.vercel.app/jobs/${params.id}`),
       },
       {
         path: "/jobApply/:id",
@@ -64,7 +64,7 @@ const Router = createBrowserRouter([
           <PrivateRoute>
             <ViewApplications/>
           </PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:3000/applications/job/${params.job_id}`)
+          loader: ({params}) => fetch(`https://job-nest-server-nu.vercel.app/applications/job/${params.job_id}`)
       },
     ],
   },
