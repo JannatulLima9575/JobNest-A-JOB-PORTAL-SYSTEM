@@ -7,6 +7,7 @@ import Hiring from './Hiring';
 import HowItWorks from './HowItWorks';
 import CreateProfile from './CreateProfile';
 import SubscribeSection from '../Components/SubscribeSection';
+import Find from './Home/Find';
 
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
             <Suspense fallback={'Loading hot jobs....'}>
                 <HotJobs jobsPromise={jobsPromise}/>
             </Suspense>
+            <Find/>
             <Status/>
             <CreateProfile/>
             <HowItWorks/>
