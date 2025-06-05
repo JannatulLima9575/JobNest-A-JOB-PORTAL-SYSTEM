@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router";
 import { IoTimeOutline } from "react-icons/io5";
+import ShowDetailsTwo from "./ShowDetailsTwo";
 
 const ShowDetails = () => {
   const {
@@ -50,18 +51,23 @@ const ShowDetails = () => {
 
       {/* 🔹 Job Summary Section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div className="space-y-2">
+        <div className="space-y-2 pb-6">
           <h2 className="text-2xl md:text-4xl font-bold text-neutral dark:text-neutral-content">
             {title}
           </h2>
           <p className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-300">
-            <IoTimeOutline className="text-lg" /> {postedTime}
+            <IoTimeOutline className="text-lg" /> {applicationDeadline}
           </p>
         </div>
         <Link to={`/jobApply/${_id}`}>
           <button className="btn btn-primary">Apply Now</button>
         </Link>
       </div>
+
+      <div className="border-b-2 border-b-gray-300"></div>
+
+      {/* section second */}
+      <ShowDetailsTwo/>
     </div>
   );
 };

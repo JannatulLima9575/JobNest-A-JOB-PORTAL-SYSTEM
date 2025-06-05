@@ -3,7 +3,6 @@ import RootLayouts from "../Layouts/RootLayouts";
 import Home from "../Pages/Home";
 import Login from "./../Pages/Login";
 import Register from "./../Pages/Register";
-import ShowDetails from "../Pages/ShowDetails";
 import PrivateRoute from "../Routes/PrivateRoute";
 import JobApply from "../Pages/JobApply";
 import MyApplications from "./../Pages/Application/MyApplications";
@@ -11,6 +10,7 @@ import PageNotFound from "../Pages/PageNotFound";
 import AddJob from "../Pages/AddJob/AddJob";
 import MyPostedJobs from "../Pages/MyPost/MyPostedJobs";
 import ViewApplications from "../Pages/Application/ViewApplications";
+import ShowDetails from "../Pages/ShowDetailsPage/ShowDetails";
 
 const Router = createBrowserRouter([
   // Main layout with navbar & footer
